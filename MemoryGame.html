@@ -1,0 +1,82 @@
+<html lang="en" ng-app="memoryGameApp">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../assets/img/favicons/favicon.ico">
+	<title>Memory Game</title>
+	<link rel="canonical" href=".\js\bootstrap.min.js">
+	<link rel="stylesheet" href=".\css\bootstrap.min.css">
+	<link href=".\css\Custom.css" rel="stylesheet">
+ </head>
+<body ng-controller="GameCtrl">
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> <a class="navbar-brand" href="#">COSD-SPWA</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+			<div class="collapse navbar-collapse " id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item "> <a class="nav-link" href="start.html">Home </a> </li>
+					<li class="nav-item active"> <a class="nav-link" href="memoryGame.html">Memory Game</a> </li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main role="main" class="mt-4 pt-4">
+		<div class="container">
+			<div class="jumbotron jumbotron-fluid p-5 mt-5">
+				<h2>Memory Game Play Instruction !</h2>
+				<p>For the purposes of this article, We're going to consider a one-player version of the game:
+					<li>The deck consists of n different card types (either n pairs of cards or n sets of 4 cards), labelled A, B, C, ... etc.</li>
+					<li>Each turn, you flip over two cards (one at a time, so you can see the first one before picking the second)</li>
+					<li>If the two cards match, then they are removed from the game, otherwise they are returned</li>
+					<li>The game ends when all the cards are removed</li></p> <a class="btn btn-Primary" href="MemoryGame.html" role="button">Start »</a> </div>
+			<div class="row">
+				<div class="col-md-5 col-sm-12">
+					<div class="card p-3 bg-light mb-4">
+						<h4 class="text-center mb-4 mt-2 ">Celebrities</h4>
+						<div class="row position-area">
+							<div class="col-md-6 col-sm-4 col-6 text-center mb-4 "> <img id="one" ng-src="./images/back.png"> <img id="oneone" class="w-100 rounded " src="./images/image1.jpg" alt="Generic placeholder image" style="display: none;"> </div>
+							<div class="col-md-6 col-sm-4 col-6 text-center mb-4 "> <img id="two" ng-src="./images/back.png"> <img id="twotwo" class="w-100 rounded " src="./images/image2.jpg" alt="Generic placeholder image" style="display: none;"> </div>
+							<div class="col-md-6 col-sm-4 col-6 text-center mb-4"> <img id="three" ng-src="./images/back.png"> <img id="threethree" class="w-100 rounded " src="./images/image3.jpg" alt="Generic placeholder image" style="display: none;"> </div>
+							<div class="col-md-6 col-sm-4 col-6 text-center mb-4"> <img id="four" ng-src="./images/back.png"> <img id="fourfour" class="w-100 rounded " src="./images/image4.jpg" alt="Generic placeholder image" style="display: none;"> </div>
+							<div class="col-md-6 col-sm-4  col-6 text-center mb-4 "> <img id="five" ng-src="./images/back.png"> <img id="fivefive" class="w-100 rounded " src="./images/image5.jpg" alt="Generic placeholder image" style="display: none;"> </div>
+							<div class="col-md-6 col-sm-4  col-6 text-center  mb-4"> <img id="six" ng-src="./images/back.png"> <img id="sixsix" class="w-100 rounded " src="./images/image6.jpg" alt="Generic placeholder image" style="display: none;"> </div>
+							<div class="col-md-6 col-sm-4  col-6 text-center mb-4"> <img id="seven" ng-src="./images/back.png"> <img id="sevenseven" class="w-100 rounded " src="./images/image7.jpg" alt="Generic placeholder image" style="display: none;"> </div>
+							<div class="col-md-6 col-sm-4 col-6 text-center mb-4 "> <img id="eight" ng-src="./images/back.png"> <img id="eighteight" class="w-100 rounded " src="./images/image8.jpg" alt="Generic placeholder image" style="display: none;"> </div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-7">
+					<div class="card p-3 bg-light mb-4">
+						<h4 class="text-center mb-4 mt-2">Match Celebrities</h4>
+						<div class="row">
+							<div class="col-md-12">
+								<div>
+									<div ng-repeat="row in game.grid" class="row">
+										<div class="col-md-3 col-sm-3 col-3  " ng-repeat="tile in row" ng-click="game.flipTile(tile)">
+											<div class="card-main d-block" ng-class="{flipped: tile.gameFieldFBI}"> <img class="front" ng-src="./images/back.png"> <img class="back" ng-src="./images/{{tile.gameFieldImageNumber}}.jpg"> </div>
+										</div>
+									</div>
+								</div>
+								<h4 class="text-center mt-5 pt-5">{{game.message}}</h4> </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<div class="p-3 text-center bg-dark">
+      <p class="m-0 text-white">Copyright @Team-6 SS2022</p>
+		</div>
+	</footer>
+	<script src="./js/jquery-3.6.0.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/angular.min.js"></script>
+	<script src="./js/memoryGameCtrl.js"></script>
+	<script src="./js/controllers.js"></script>
+</body>
+
+</html>
